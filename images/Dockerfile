@@ -41,7 +41,7 @@ ENV ImageOS=ubuntu22
 
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
-    sudo curl wget \
+    sudo curl wget build-essential \
     lsb-release \
     && rm -rf /var/lib/apt/lists/*
 
