@@ -42,7 +42,7 @@ ENV ImageOS=ubuntu22
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
     sudo curl wget build-essential git-all pkg-config libssl-dev \
-    lsb-release jq clang \
+    lsb-release jq clang bc \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
