@@ -41,9 +41,14 @@ ENV ImageOS=ubuntu22
 
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
-    sudo \
+    sudo curl wget \
     lsb-release \
     && rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
+    apt-get install -y nodejs && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN adduser --disabled-password --gecos "" --uid 1001 runner \
     && groupadd docker --gid 123 \
