@@ -41,7 +41,7 @@ ENV ImageOS=ubuntu22
 
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
-    sudo curl wget build-essential git-all pkg-config \
+    sudo curl wget build-essential git-all pkg-config libssl-dev \
     lsb-release \
     && rm -rf /var/lib/apt/lists/*
 
