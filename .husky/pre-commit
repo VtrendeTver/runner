@@ -1,6 +1,19 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
-cd src/Misc/expressionFunc/hashFiles
+# Set the directory where husky.sh is located
+husky_script_dir="$(dirname -- "$0")/_/husky.sh"
 
+# Check if husky script exists
+if [ ! -f "$husky_script_dir" ]; then
+  echo "Error: Husky script not found in '$husky_script_dir'. Make sure Husky is installed correctly."
+  exit 1
+fi
+
+# Source the husky script
+. "$husky_script_dir"
+
+# Change directory to the location of hashFiles
+cd src/Misc/expressionFunc/hashFiles || exit 1
+
+# Run lint-staged using npx
 npx lint-staged
